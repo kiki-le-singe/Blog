@@ -6,13 +6,17 @@ module.exports = function(grunt) {
 
     config: {
       paths : {
-        app : 'front/app'
+        app : 'front/app',
+        tmp : {
+          javascripts : 'tmp/javascripts',
+          tpl : 'tmp/templates'
+        },
+        tpl : '<%= config.paths.app %>/views/templates'
       }
     },
 
     clean: {
-      pre: ['public/*'],
-      post: ['tmp/*']
+      all: ['public/css', 'public/js']
     },
 
     coffeelint: {
@@ -33,7 +37,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= config.paths.app %>',
         src: ['**/*.coffee'],
-        dest: 'tmp/javascripts',
+        dest: 'public/js',
         ext: '.js'
       }
     },
@@ -42,8 +46,60 @@ module.exports = function(grunt) {
       coffee : {
         files: ['<%= config.paths.app %>/**/*.coffee'],
         tasks: ['coffee-compile']
+      },
+      handlebars : {
+        files: ['<%= config.paths.tpl %>/**/*.hbs'],
+        tasks: ['hbs-copy']
+      }
+      // ,
+      // handlebars : {
+      //   files: ['<%= config.paths.tpl %>/**/*.hbs'],
+      //   tasks: ['hbs-compile']
+      // }
+    },
+
+    copy: {
+      hbs: {
+        expand: true,
+        cwd: 'front/app/views/templates/',
+        src: ['**'], 
+        dest: 'public/js/views/templates'
       }
     }
+
+    // handlebars: {
+    //   compile: {
+    //     options: {
+    //       namespace: 'JST'
+    //     },
+    //     src: ['**/*.hbs'],
+    //     dest: '<%= config.paths.tmp.tpl %>/templates.js'
+    //   }
+    // },
+
+    // handlebars: {
+    //   compile: {
+    //     options: {
+    //       namespace: 'JST'
+    //     },
+    //     expand: true,
+    //     cwd: '<%= config.paths.tpl %>',
+    //     src: ['**/*.hbs'],
+    //     dest: '<%= config.paths.tmp.javascripts %>/views/templates',
+    //     ext: '.tmpl.js'
+    //   }
+    // },
+
+    // requirejs: {
+    //   compile: {
+    //     options: {
+    //       name: "main",
+    //       baseUrl: "<%= config.paths.tmp.javascripts %>",
+    //       mainConfigFile: "<%= config.paths.tmp.javascripts %>/main.js",
+    //       out: "public/js/main.js"
+    //     }
+    //   }
+    // }
 
   });
 
@@ -51,12 +107,24 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('coffee-compile', [
     'coffeelint',
     'coffee'
   ]);
+  grunt.registerTask('hbs-compile', ['handlebars']);
+  grunt.registerTask('hbs-copy', ['copy:hbs']);
+  grunt.registerTask('live', [
+    'clean:all',
+    'watch'
+  ]);
 
-  grunt.registerTask('live', ['watch']);
-  // grunt.registerTask('test-clean', ['clean']);
+  grunt.registerTask('build', [
+    'clean:all',
+    'coffee-compile',
+    'hbs-copy'
+  ]);
 };
