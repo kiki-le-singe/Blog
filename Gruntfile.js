@@ -6,11 +6,7 @@ module.exports = function(grunt) {
 
     config: {
       paths : {
-        app : 'front/app',
-        tmp : {
-          javascripts : 'tmp/javascripts',
-          tpl : 'tmp/templates'
-        },
+        app : 'app',
         tpl : '<%= config.paths.app %>/views/templates'
       }
     },
@@ -61,7 +57,7 @@ module.exports = function(grunt) {
     copy: {
       hbs: {
         expand: true,
-        cwd: 'front/app/views/templates/',
+        cwd: '<%= config.paths.tpl %>/',
         src: ['**'], 
         dest: 'public/js/views/templates'
       }
