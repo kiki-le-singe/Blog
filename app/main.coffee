@@ -4,12 +4,22 @@
 
 require.config
 
+  paths:
+    jquery: 'libs/jquery/dist/jquery'
+    underscore: 'libs/lodash/dist/lodash'
+    backbone: 'libs/backbone/backbone'
+    marionette: 'libs/backbone.marionette/lib/backbone.marionette'
+    text: 'libs/requirejs-text/text'
+    handlebars: 'libs/handlebars/handlebars'
+    hbs: 'libs/requirejs-hbs/hbs'
+    templates: 'views/templates'
+
   shim:
-    lodash:
+    underscore:
       exports: '_'
 
     backbone:
-      deps: ['lodash', 'jquery']
+      deps: ['underscore', 'jquery']
       exports: 'Backbone'
 
     marionette:
@@ -19,18 +29,8 @@ require.config
     handlebars:
       exports: 'Handlebars'
 
-  paths:
-    jquery: 'libs/jquery/jquery'
-    lodash: 'libs/lodash/dist/lodash'
-    backbone: 'libs/backbone/backbone'
-    marionette: 'libs/backbone.marionette/lib/backbone.marionette'
-    text: 'libs/requirejs-text/text'
-    handlebars: 'libs/handlebars/handlebars'
-    hbs: 'libs/requirejs-hbs/hbs'
-    templates: 'views/templates'
 
-
-require ['backbone', 'jquery', 'lodash', 'views/app'], \
+require ['backbone', 'jquery', 'underscore', 'views/app'], \
 (Backbone, $, _, AppView) ->
   console.log Backbone
   console.log $
