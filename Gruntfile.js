@@ -12,7 +12,9 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      all: ['public/css', 'public/js']
+      all: {
+        src: ['public/css/*', 'public/js/*', '!public/js/libs/**']
+      }
     },
 
     coffeelint: {
@@ -114,7 +116,7 @@ module.exports = function(grunt) {
   grunt.registerTask('hbs-compile', ['handlebars']);
   grunt.registerTask('hbs-copy', ['copy:hbs']);
   grunt.registerTask('live', [
-    'clean:all',
+    // 'clean:all',
     'watch'
   ]);
 
