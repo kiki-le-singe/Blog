@@ -1,7 +1,7 @@
 define [
   'backbone'
   'jquery'
-  'lodash'
+  'underscore'
   'hbs!templates/header'
 ], (Backbone, $, _, headerTpl) ->
   'use strict'
