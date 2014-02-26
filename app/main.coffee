@@ -40,4 +40,4 @@ require ['backbone', 'jquery', 'underscore', 'app', 'views/app'], \
   App.start()
   Backbone.history.start()
 
-  new AppView()
+  # new AppView()

@@ -11,5 +11,5 @@ define [
     className: 'main-menu'
 
     initialize: ->
-      console.log 'initialize'
+      console.log 'DEBUG - AppView.initialize'
       $('#menu').html(headerTpl { thing: 'Some string' })
