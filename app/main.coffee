@@ -30,14 +30,19 @@ require.config
       exports: 'Handlebars'
 
 
-require ['backbone', 'jquery', 'underscore', 'app', 'views/app'], \
-(Backbone, $, _, App, AppView) ->
-  console.log Backbone
-  console.log $
-  console.log _
-  console.log 'mickey'
+require [
+  'backbone'
+  'jquery'
+  'underscore'
+  'app'
+  'routers/index'
+  'controllers/index'], \
+(Backbone, $, _, App, IndexRouter, IndexController) ->
+  # console.log Backbone
+  # console.log $
+  # console.log _
+  # console.log 'mickey'
 
   App.start()
+  new IndexRouter controller: new IndexController()
   Backbone.history.start()
-
-  # new AppView()

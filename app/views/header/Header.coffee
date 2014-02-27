@@ -12,5 +12,6 @@ define [
     className: 'main-menu'
 
     initialize: ->
-      console.log 'initialize - HeaderView.initialize'
-      # $('#menu').html(headerTpl {item1: 'Item 1', item2: 'Item 2', item3: 'Item 3'})
+      console.log 'CLASS : HeaderView - initialize'
+      # $('#menu').html(headerTpl \
+      #  {item1: 'Item 1', item2: 'Item 2', item3: 'Item 3'})
