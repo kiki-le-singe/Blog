@@ -1,9 +1,12 @@
 define [
   'marionette'
   'views/header/Header'
-], (Marionette, Header) ->
+  'views/article/ArticleListCompositeView'
+  'collections/ArticleList'
+], (Marionette, HeaderView, ArticleListCompositeView, ArticleList) ->
 
   App = new Marionette.Application()
+  ArticleList = new ArticleList()
   
   App.addRegions
     header: '#header'
@@ -13,7 +16,14 @@ define [
 
   App.addInitializer () ->
     console.log 'DEBUG - App.addInitializer'
-    App.header.show new Header()
+
+    viewOptions =
+      collection : ArticleList
+
+    App.header.show new HeaderView()
+    App.content.show new ArticleListCompositeView(viewOptions)
+
+    ArticleList.fetch()
 
   # Return App
   App
