@@ -1,9 +1,10 @@
 define [
+  'backbone'
   'marionette'
   'views/header/Header'
-  'views/article/ArticleListCompositeView'
+  'views/article/ArticleListCollectionView'
   'collections/ArticleList'
-], (Marionette, HeaderView, ArticleListCompositeView, ArticleList) ->
+], (Backbone, Marionette, HeaderView, ArticleListCollectionView, ArticleList) ->
 
   App = new Marionette.Application()
   ArticleList = new ArticleList()
@@ -17,11 +18,31 @@ define [
   App.addInitializer () ->
     console.log 'DEBUG - App.addInitializer'
 
+    ## Do this ##
+    # viewOptions =
+    #   collection : ArticleList
+
+    ### Not this, it is a TEST ###
     viewOptions =
-      collection : ArticleList
+      collection : new Backbone.Collection(
+        [
+          {
+            title : 'Default title'
+            date : 'now'
+            description : 'Description'
+            author : 'Mickey'
+          },
+          {
+            title : 'Default title'
+            date : 'now'
+            description : 'Description'
+            author : 'Mickey'
+          }
+        ]
+      )
 
     App.header.show new HeaderView()
-    App.content.show new ArticleListCompositeView(viewOptions)
+    App.content.show new ArticleListCollectionView(viewOptions)
 
     ArticleList.fetch()
 
