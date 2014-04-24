@@ -4,7 +4,11 @@ define [
   'views/header/Header'
   'views/article/ArticleListCollectionView'
   'collections/ArticleList'
-], (Backbone, Marionette, HeaderView, ArticleListCollectionView, ArticleList) ->
+], (Backbone,
+  Marionette,
+  HeaderView,
+  ArticleListCollectionView,
+  ArticleList) ->
 
   App = new Marionette.Application()
   ArticleList = new ArticleList()
