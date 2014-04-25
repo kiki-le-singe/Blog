@@ -2,12 +2,12 @@ define [
   'marionette'
   'jquery'
   'underscore'
-  'hbs!templates/article/article_summary_item_view'
-], (Marionette, $, _, articleSummaryItemViewTpl) ->
+  'templates'
+], (Marionette, $, _, templates) ->
   'use strict'
 
   class ArticleSummaryItemView extends Marionette.ItemView
-    template: articleSummaryItemViewTpl
+    template: templates.articleSummaryItemView
     tagName : 'li',
 
     initialize: ->

@@ -2,12 +2,12 @@ define [
   'marionette'
   'jquery'
   'underscore'
-  'hbs!templates/header/header'
-], (Marionette, $, _, headerTpl) ->
+  'templates'
+], (Marionette, $, _, templates) ->
   'use strict'
 
   class HeaderView extends Marionette.ItemView
-    template: headerTpl
+    template: templates.header
     tagName: 'div'
     className: 'main-menu'
 

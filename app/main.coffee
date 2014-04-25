@@ -12,7 +12,7 @@ require.config
     text: 'libs/requirejs-text/text'
     handlebars: 'libs/handlebars/handlebars'
     hbs: 'libs/requirejs-hbs/hbs'
-    templates: 'views/templates'
+    tpl: 'views/templates'
 
   shim:
     underscore:

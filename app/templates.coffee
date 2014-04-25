@@ -1,5 +1,8 @@
 define (require) ->
   'use strict'
 
-  class Templates
-    header: require 'hbs!templates/header/header'
+  {
+    header: require 'hbs!tpl/header/header'
+    articleSummaryItemView:\
+     require 'hbs!tpl/article/article_summary_item_view'
+  }
