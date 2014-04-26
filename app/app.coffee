@@ -23,27 +23,27 @@ define [
     console.log 'DEBUG - App.addInitializer'
 
     ## Do this ##
-    # viewOptions =
-    #   collection : ArticleList
+    viewOptions =
+      collection : ArticleList
 
     ### Not this, it is a TEST ###
-    viewOptions =
-      collection : new Backbone.Collection(
-        [
-          {
-            title : 'Default title'
-            date : 'now'
-            description : 'Description'
-            author : 'Mickey'
-          },
-          {
-            title : 'Default title'
-            date : 'now'
-            description : 'Description'
-            author : 'Mickey'
-          }
-        ]
-      )
+    # viewOptions =
+    #   collection : new Backbone.Collection(
+    #     [
+    #       {
+    #         title : 'Default title'
+    #         date : 'now'
+    #         description : 'Description'
+    #         author : 'Mickey'
+    #       },
+    #       {
+    #         title : 'Default title'
+    #         date : 'now'
+    #         description : 'Description'
+    #         author : 'Mickey'
+    #       }
+    #     ]
+    #   )
 
     App.header.show new HeaderView()
     App.content.show new ArticleListCollectionView(viewOptions)

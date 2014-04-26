@@ -1,12 +1,22 @@
 {
   "name": "kiki-blog",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {
     "name": "Kiki le singe"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiki-le-singe/Blog.git"
   },
   "description": "News, tips and tricks",
   "engines": {
     "node": ">= 0.10.12"
+  },
+  "dependencies": {
+    "express": "~4.1.0",
+    "mongoose": "~3.8.8",
+    "body-parser": "~1.0.2",
+    "path": "~0.4.9"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

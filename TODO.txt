@@ -1,1 +1,8 @@
-- Create a json stub for the articles list : app/collections/ArticleList.coffee
+- Create INSTALL.txt file :
+  - How install nodejs
+  - How install bowerjs
+  - How install Gruntjs
+  - How install ...
+
+- Install mongodb
+- Set up mongoose

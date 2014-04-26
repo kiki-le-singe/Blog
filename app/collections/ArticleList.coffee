@@ -9,7 +9,7 @@ define [
 
   class ArticleList extends Backbone.Collection
     model: Article
-    url: 'data/programmation.json',
+    url: '/api/articles',
 
     initialize: ->
       console.log 'CLASS : ArticleListCollection - initialize'
