@@ -8,7 +8,7 @@ require.config
     jquery: 'libs/jquery/dist/jquery'
     underscore: 'libs/lodash/dist/lodash'
     backbone: 'libs/backbone/backbone'
-    marionette: 'libs/marionette/lib/backbone.marionette'
+    marionette: 'libs/backbone.marionette/lib/backbone.marionette'
     text: 'libs/requirejs-text/text'
     handlebars: 'libs/handlebars/handlebars'
     hbs: 'libs/requirejs-hbs/hbs'

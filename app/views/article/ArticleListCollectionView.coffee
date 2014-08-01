@@ -8,7 +8,7 @@ define [
 
   class ArticleListCollectionView extends Marionette.CollectionView
     tagName: 'ul'
-    itemView: ArticleSummaryItemView
+    childView: ArticleSummaryItemView
 
     ### TESTS Event ###
     itemEvents:
