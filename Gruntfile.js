@@ -63,6 +63,22 @@ module.exports = function(grunt) {
         src: ['**'], 
         dest: 'public/js/views/templates'
       }
+    },
+
+    open: {
+      dev: {
+        path: 'http://localhost:8080/'
+      }
+    },
+
+    express: {
+      dev: {
+        options: {
+          script: 'server.js',
+          // Override node env's PORT
+          port: 8080,
+        }
+      }
     }
 
     // handlebars: {
@@ -108,6 +124,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-express-server');
 
   grunt.registerTask('coffee-compile', [
     'coffeelint',
@@ -117,6 +135,8 @@ module.exports = function(grunt) {
   grunt.registerTask('hbs-copy', ['copy:hbs']);
   grunt.registerTask('live', [
     // 'clean:all',
+    'express:dev',
+    'open:dev',
     'watch'
   ]);
 
