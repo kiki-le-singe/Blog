@@ -7,14 +7,10 @@
 * `$ npm install`
 * `$ bower install`
 
-## Start server
-
-* `$ cd Blog`
-* `$ node server`
-
-Then serve them on `localhost:8080`
-
 ## Grunt tasks
 
 * `$ grunt live`
+
+Then serve the app on `localhost:8080` and opens your default browser
+
 * `$ grunt build`
