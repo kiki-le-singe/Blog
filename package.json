@@ -35,6 +35,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-yuidoc": "~0.5.2",
     "grunt-express-server": "^0.4.17",
-    "grunt-open": "^0.2.3"
+    "grunt-open": "^0.2.3",
+    "load-grunt-tasks": "^0.6.0"
   }
 }
