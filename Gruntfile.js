@@ -43,6 +43,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        spawn: false
+      },
       coffee : {
         files: ['<%= config.paths.app %>/**/*.coffee'],
         tasks: ['coffee-compile']
@@ -125,10 +128,10 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('hbs-compile', ['handlebars']);
   grunt.registerTask('hbs-copy', ['copy:hbs']);
-  grunt.registerTask('live', [
+  grunt.registerTask('serve', [
     // 'clean:all',
-    'express:dev',
-    'open:dev',
+    'express:dev', // start server
+    'open:dev', // open app in the default browser
     'watch'
   ]);
 

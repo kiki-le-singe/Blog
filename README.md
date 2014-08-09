@@ -9,7 +9,7 @@
 
 ## Grunt tasks
 
-* `$ grunt live`
+* `$ grunt serve`
 
 Then serve the app on `localhost:8080` and opens your default browser
 
